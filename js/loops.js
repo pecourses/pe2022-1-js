@@ -1,84 +1,94 @@
-// console.log('Пройти прямо');
-// console.log('Повернути наліво');
+console.log('Пройти прямо');
+console.log('Повернути наліво');
 
-// console.log('Пройти прямо');
-// console.log('Повернути наліво');
+console.log('Пройти прямо');
+console.log('Повернути наліво');
 
-// console.log('Пройти прямо');
-// console.log('Повернути наліво');
+console.log('Пройти прямо');
+console.log('Повернути наліво');
 
-// console.log('Пройти прямо');
-// console.log('Повернути наліво');
+console.log('Пройти прямо');
+console.log('Повернути наліво');
 
 // while (умова) {
-//   дії - ітерація циклу
+//   тіло циклу
 // }
 
-// let i = 1;
-// const limit = 4;
+// 1 виконання тіла циклу -- ітерація
 
-// while (i++ <= limit) {
-//   console.log('Пройти прямо');
-//   console.log('Повернути наліво');
-//   // i++;
-// }
+let i = 1;
+const limit = 4;
+
+while (i++ <= limit) {
+  console.log('Пройти прямо');
+  console.log('Повернути наліво');
+  // i = i + 1;
+}
 
 // i - змінна ціклу
-// змінна цикла має змігнюватися, щоб досягти умови закінчення
+// змінна цикла має змінюватися, щоб досягти умови закінчення
 
-// У пользователя есть книга с pageCount страниц    5
-// 1) Вывести номера страниц с 1й по последнюю      1 2 3 4 5
-// 2) * Вывести четные номера страниц по последнюю  2 4
+// Task: У користувача є книга з pageCount сторінок    5
+// 1) Вивести номери сторінок з 1ї по останню          1 2 3 4 5
 
-// let currentPage = 1;
-// const pagesCount = 5;
+let currentPage = 1;
+const pagesCount = 5;
 
+while (currentPage <= pagesCount) {
+  console.log(currentPage++);
+  // currentPage = currentPage + 1;
+}
+
+// Алгоритм:
 // почати з 1 стор
-// перевырити, чи не досягли кінця
+// перевірити, чи не досягли кінця
 // якщо ні, то вивести номер
-//             збільшити номур сторінки
-// перевырити, чи не досягли кінця
+//             збільшити номер сторінки
+// перевірити, чи не досягли кінця
 // якщо ні, то вивести номер
-//             збільшити номур сторінки
-// перевырити, чи не досягли кінця
+//             збільшити номер сторінки
+// перевірити, чи не досягли кінця
 // якщо ні, то вивести номер
-//             збільшити номур сторінки
+//             збільшити номер сторінки
+// ...
+// перевірити, чи не досягли кінця
+// якщо так, то вихід з циклу
 
-// while (currentPage <= pagesCount) {
-//   console.log(currentPage++);
-//   // currentPage++;
-// }
+// Task: У користувача є книга з pageCount сторінок     5
+// 2) * Вивести парні номери сторінок                   2 4
 
-// let i = 1;
-// const limit = 5;
-// if (i % 2 !== 0) {
-//   i++;
-// }
-// while (i <= limit) {
-//   console.log(i);
-//   i += 2;
-// }
+let i = 1;
+const limit = 5;
+if (i % 2 !== 0) {
+  i++;
+}
+while (i <= limit) {
+  console.log(i);
+  i += 2;
+}
 
-// Користувач вводе значення, поки не введе коректне число
+// Task: Користувач вводе значення, поки не введе коректне число
 // Вивести квадрат цього числа
 
-// let userValue = Number(prompt('Input number'));
+let userValue = Number(prompt('Input number'));
 
-// while (!Number.isFinite(userValue)) {
-//   userValue = Number(
-//     prompt('You are input wrong number. Input correct number')
-//   );
-// }
+while (!Number.isFinite(userValue)) {
+  userValue = Number(
+    prompt('You are input wrong number. Input correct number')
+  );
+}
 
-// console.log('userValue ** 2 :>> ', userValue ** 2);
+console.log('userValue ** 2 :>> ', userValue ** 2);
 
-// let userValue = prompt('Input number');
+// або (+ перевірка на незаповлення поля введення)
 
-// while (!Number.isFinite(Number(userValue)) || userValue === '') {
-//   userValue = prompt('You are input wrong number. Input correct number');
-// }
+let userValue = prompt('Input number');
 
-// console.log('userValue ** 2 :>> ', userValue ** 2);
+while (!Number.isFinite(Number(userValue)) || userValue === '') {
+  userValue = prompt('You are input wrong number. Input correct number');
+}
+
+console.log('userValue ** 2 :>> ', userValue ** 2);
 
 // Цикл з лічильником (змінна циклу)
 
@@ -86,62 +96,62 @@
 //   тіло циклу
 // }
 
-// let currentPage = 1;
+let currentPage = 1;
+const pagesCount = 5;
+
+while (currentPage <= pagesCount) {
+  console.log(currentPage);
+  currentPage++;
+}
+// або
+//             0                       1                   3
+for (let currentPage = 1; currentPage <= pagesCount; currentPage++) {
+  console.log(currentPage); // 2
+}
+
+// 0 (ініціалізація лічильника) виконується 1 раз до циклу
+// 1 (умова продовження циклу)  якщо умова істинна, то виконуємо тіло циклу 2, інакше вихід
+// 2 (тіло циклу)               виконується, якщо умова 1 істинна
+// 3 (зміна лічильника)         виконується після кожної ітерації. Потім перехід на 1
+
+// Task: вивести номери сторінок з останньої по 1
+
 // const pagesCount = 5;
 
-// while (currentPage <= pagesCount) {
-//   console.log(currentPage);
-//   currentPage++;
-// }
+for (let currentPage = pagesCount; currentPage >= 1; currentPage--) {
+  console.log('currentPage :>> ', currentPage);
+}
 
-//             1                       2                   3
-// for (let currentPage = 1; currentPage <= pagesCount; currentPage++) {
-//   console.log(currentPage);
-// }
+// Task: розрахувати суму чисел від 1 до 5 ( 1+2+3+4+5 )
 
-// 1 виконується 1 раз до циклу
-// 2 умова продовження циклу. Якщо істинна, то на тіло циклу
-// 3 зміна лічильника, після кожної ітерації
-
-// вывести номера стр с посл. по 1
-
-// const pagesCount = 5;
-
-// for (let currentPage = pagesCount; currentPage >= 1; currentPage--) {
-//   console.log('currentPage :>> ', currentPage);
-// }
-
-// розрахувати суму чисел від 1 до 5 ( 1+2+3+4+5 )
-
-// let s = 0;
-// for (let i = 1; i <= 5; i++) {
-//   s = s + i;
-// }
-// console.log('s :>> ', s);
+let sum = 0;
+for (let i = 1; i <= 5; i++) {
+  sum = sum + i;
+}
+console.log('sum :>> ', sum);
 
 // s = 0
 // i = 1;
-// s = s +  i= 0 + 1;
+// s = s + i = 0 + 1 = 1;
 // i = 2
 // s = s + i = 1 + 2 = 3
 // i = 3
 // s = s + i = 3 + 3 = 6
 
-// Вивести числа від 2 до 16 парні
+// Task: Вивести числа від 2 до 16 парні
 
-// const limit = 16;
-// for (let i = 2; i <= 16; i += 2) {
-//   console.log(i);
-// }
+const limit = 16;
+for (let i = 2; i <= 16; i += 2) {
+  console.log(i);
+}
 
-// Розрахувати добуток чисел від 1 до 15 непарні
+// Task: Розрахувати добуток чисел від 1 до 15 непарні
 const limit = 15;
 
-let m = 1;
+let mult = 1;
 for (let i = 1; i <= 15; i += 2) {
-  m *= i; // 1 * 1 * 3 * 5 * 7 * ... * 15
+  mult *= i; // 1 * 1 * 3 * 5 * 7 * ... * 15
 }
-console.log('m :>> ', m);
+console.log('mult :>> ', mult);
 
-// i =  i + 2
-// i += 2
+// i = i + 2 ==  i += 2
