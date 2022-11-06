@@ -107,48 +107,90 @@
 
 /* */
 
-const user = {
-  // властивості
-  firstName: 'Test',
-  lastName: 'Testovich',
-  email: 'test@gmail.com',
-  password: 'qwerty',
-  // методи
-  // this - той, об'єкт, що стоїть перед крапкою при виклику метода
-  // getFullName: function () {
-  //   return `${this.firstName} ${this.lastName}`;
-  // },
-  getFullName() {
-    return `${this.firstName} ${this.lastName}`;
-  },
-  // changeEmail: function (newEmail) {
-  //   this.email = newEmail;
-  // },
-  changeEmail(newEmail) {
-    this.email = newEmail;
-  },
-};
+// const user = {
+//   // властивості
+//   firstName: 'Test',
+//   lastName: 'Testovich',
+//   email: 'test@gmail.com',
+//   password: 'qwerty',
+//   // методи
+//   // this - той, об'єкт, що стоїть перед крапкою при виклику метода
+//   // getFullName: function () {
+//   //   return `${this.firstName} ${this.lastName}`;
+//   // },
+//   getFullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   },
+//   // changeEmail: function (newEmail) {
+//   //   this.email = newEmail;
+//   // },
+//   changeEmail(newEmail) {
+//     this.email = newEmail;
+//   },
+// };
 
-console.log('user.getFullName() :>> ', user.getFullName());
-user.changeEmail('newmail@gmail.com');
-console.log('user :>> ', user);
+// console.log('user.getFullName() :>> ', user.getFullName());
+// user.changeEmail('newmail@gmail.com');
+// console.log('user :>> ', user);
 
 // Написати метод для зміни кольору машини
+// const car = {
+//   mark: 'VW',
+//   model: 'Jetta',
+//   year: 1987,
+//   number: '3642',
+//   color: 'Red',
+//   changeColor(newColor) {
+//     this.color = newColor;
+//   },
+//   changeValue(valName, value) {
+//     this[valName] = value;
+//   },
+// };
+
+// car.changeColor('yellow');
+// console.log('car :>> ', car);
+// car.changeValue('year', 2000);
+// console.log('car :>> ', car);
+
+// перебор об'єкту за допомогою for..in
+// в key послідовно поміщаються значення всіх властивостей
+// for (const key in user) {
+//   console.log('key :>> ', user[key]);
+// }
+
+// // Використати for..in для car
+// // car[ім'я властивості] = значення
+// for (const key in car) {
+//   console.log(`Car ${key} = ${car[key]}`);
+// }
+
+// Функція-конструктор
+
+function User(firstName, lastName, age) {
+  // сonst this = {}; - new
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.age = age;
+  this.getFullName = function () {
+    return `${this.firstName} ${this.lastName}`;
+  };
+  // return this; - new
+}
+
+const user1 = new User('Test', 'Testovich', 20);
+console.log('user1 :>> ', user1);
+// створити user2
+const user2 = new User('User 2', 'Testovich 2', 21);
+console.log('User 2', user2);
+
+console.log('user1.getFullName() :>> ', user1.getFullName());
+
 const car = {
-  mark: 'VW',
-  model: 'Jetta',
-  year: 1987,
-  number: '3642',
-  color: 'Red',
-  changeColor(newColor) {
-    this.color = newColor;
-  },
-  changeValue(valName, value) {
-    this[valName] = value;
+  model: 'QWERTY',
+  owner: {
+    firstName: 'Test',
+    lastName: 'Testovich',
   },
 };
-
-car.changeColor('yellow');
-console.log('car :>> ', car);
-car.changeValue('year', 2000);
 console.log('car :>> ', car);
