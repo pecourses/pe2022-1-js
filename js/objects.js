@@ -132,3 +132,23 @@ const user = {
 console.log('user.getFullName() :>> ', user.getFullName());
 user.changeEmail('newmail@gmail.com');
 console.log('user :>> ', user);
+
+// Написати метод для зміни кольору машини
+const car = {
+  mark: 'VW',
+  model: 'Jetta',
+  year: 1987,
+  number: '3642',
+  color: 'Red',
+  changeColor(newColor) {
+    this.color = newColor;
+  },
+  changeValue(valName, value) {
+    this[valName] = value;
+  },
+};
+
+car.changeColor('yellow');
+console.log('car :>> ', car);
+car.changeValue('year', 2000);
+console.log('car :>> ', car);
