@@ -5,130 +5,139 @@
 
 // Array - впорядкована колекція
 
-// const arr1 = []; // Синтаксичний цукор
-// const arr2 = new Array();
+// Створення масиву ------------------------------------------
 
-// const arr3 = [1, 2, 3, 4];
+const arr1 = []; // Синтаксичний цукор
+const arr2 = new Array();
 
-// // arr[i] - доступ до елемента під номером i
-// // arr.length - довжина масива
+const arr3 = [1, 2, 3, 4];
 
-// // const users = [
-// //   { id: 1, name: 'Test' },
-// //   { id: 2, name: 'Ivo' },
-// // ];
+// arr[i] - доступ до елемента під номером i
+// arr.length - довжина масива
 
-// // написати функцію для виводу елементів масиву
-// // function printArray(arr) {
-// //   for (let i = 0; i < arr.length; i++) {
-// //     console.log('arr[i] :>> ', arr[i]);
-// //   }
-// // }
+const users = [
+  { id: 1, name: 'Test' },
+  { id: 2, name: 'Ivo' },
+];
 
-// // printArray(arr3);
+// Перебір масиву циклами ----------------------------------
 
-// // написати функцію для обчислення суми елементів масиву
-// // функція приймає масив і повертає його суму
+// Task: написати функцію для виводу елементів масиву
 
-// function countSum(arr) {
-//   let sum = 0;
-//   for (let i = 0; i < arr.length; i++) {
-//     console.log(`arr[${i}] :>> `, arr[i]);
-//     sum += arr[i];
-//   }
-//   return sum;
-// }
+function printArray(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    console.log('arr[i] :>> ', arr[i]);
+  }
+}
 
-// console.log('countSum(arr3) :>> ', countSum(arr3));
+printArray(arr3);
 
-// const arr4 = arr3; // погано, бо копіюється посилання
+// Task: написати функцію для обчислення суми елементів масиву
+// функція приймає масив і повертає його суму
 
-// // Копіювання масивів
-// const arr5 = Array.from(arr3);
+function countSum(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    console.log(`arr[${i}] :>> `, arr[i]);
+    sum += arr[i];
+  }
+  return sum;
+}
 
-// const arr6 = [...arr3];
+console.log('countSum(arr3) :>> ', countSum(arr3));
 
-// // Методи масивів
-// arr3[arr3.length] = 5;
-// console.log('arr3 :>> ', arr3);
+// Копіювання масивів ------------------------------------
 
-// arr3.push(6);
-// console.log('arr3 :>> ', arr3);
+const arr4 = arr3; // погано, бо копіюється посилання
 
-// // ввести з консолі n елемнтів масиву
+const arr5 = Array.from(arr3); // ok
 
-// function inputArray(n) {
-//   const arr = [];
-//   for (let i = 0; i < n; i++) {
-//     arr.push(Number(prompt('input item')));
-//   }
-//   return arr;
-// }
+const arr6 = [...arr3]; // ok
 
-// // console.log('inputArray(5); :>> ', inputArray(5));
+// Методи масивів -----------------------------------------
 
-// console.log('arr3[arr3.length-1] :>> ', arr3[arr3.length - 1]);
+arr3.push(6); // додає елемента у кінець масиву
 
-// console.log('arr3.pop() :>> ', arr3.pop()); // повертає і видаляє останній елемент
+// Task: ввести з консолі n елемнтів масиву
 
-// console.log('arr3.shift(10) :>> ', arr3.shift()); // повертає і видаляє перший елемент
+function inputArray(n) {
+  const arr = [];
+  for (let i = 0; i < n; i++) {
+    arr.push(Number(prompt('input item')));
+  }
+  return arr;
+}
 
-// arr3.unshift(10); // додає на початок масива елемент
+console.log('arr3.pop() :>> ', arr3.pop()); // повертає і видаляє останній елемент
 
-// //  shift i unshift використовувати в крайніх випадках!
+arr3.unshift(10); // додає елемент на початок масива
 
-// // slice/splice
-// const singleNumbers = arr3.slice(3);
-// console.log('singleNumbers :>> ', singleNumbers);
+console.log('arr3.shift(10) :>> ', arr3.shift()); // повертає і видаляє перший елемент
 
-// //скопіювати однозначні числа
-// const arr10 = [10, 15, 2, 3, 5, 122, 155];
-// const singleNumbers2 = arr10.slice(2, -2);
-// console.log('singleNumbers2 :>> ', singleNumbers2);
+// shift i unshift використовувати в крайніх випадках!
 
-// // видалити з arr10 5-ку
-// arr10.splice(4, 1);
-// console.log('splice', arr10);
+// slice - копіювання вказаної частини масиву
+const singleNumbers = arr3.slice(3);
+console.log('singleNumbers :>> ', singleNumbers);
 
-// const arr11 = [1, 2, 3];
-// const arr12 = [10, 11, 12];
-// const arr13 = arr11.concat(arr12);
-// console.log('arr11.concat(arr12) :>> ', arr13);
+// Task: скопіювати однозначні числа
+const arr10 = [10, 15, 2, 3, 5, 122, 155];
+const singleNumbers2 = arr10.slice(2, -2);
+console.log('singleNumbers2 :>> ', singleNumbers2);
 
-// перебір масиву
+// splice - видалення з масиву певних елементів
+
+// Task: видалити з arr10 5-ку
+arr10.splice(4, 1);
+console.log('splice', arr10);
+
+// Конкатенація масивів
+
+const arr11 = [1, 2, 3];
+const arr12 = [10, 11, 12];
+const arr13 = arr11.concat(arr12);
+console.log('arr11.concat(arr12) :>> ', arr13);
+
+// Перебір масиву
+
 // for..in - проходе по індексах (властивостях)
+// зазвичай його для масивів не використовують
 
-// for (key in arr13) {
-//   console.log(`arr[${key}]`, arr13[key]);
-// }
+for (key in arr13) {
+  console.log(`arr[${key}]`, arr13[key]);
+}
 
-// // for..of - проходе по значеннях
-// for (item of arr13) {
-//   console.log('item :>> ', item);
-// }
+// for..of - проходе по значеннях
+for (item of arr13) {
+  console.log('item :>> ', item);
+}
 
-// Task: перебрати for..of масив
-// const users = [
-//   { id: 1, name: 'Test' },
-//   { id: 2, name: 'Ivo' },
-// ];
+// Task: перебрати за допомогою for..of масив
+const users = [
+  { id: 1, name: 'Test' },
+  { id: 2, name: 'Ivo' },
+];
 
-// for (const item of users) {
-//   console.log('user:', item);
-// }
+for (const item of users) {
+  console.log('user:', item);
+}
 
-// Методи перебору масивів
-// const myCb = function (x) {
-//   console.log('x :>> ', x);
-// };
+// Методи перебору масивів ---------------------------------------
 
-// function f(cb, a) {
-//   cb(a);
-// }
+// Поняття колбеку
+// Колбек - це функція, яка передається до іншої функції і виконується в ній
 
-// f(myCb, 5);
+const myCb = function (x) {
+  console.log('x :>> ', x);
+};
 
-// forEach виконує коллбек послідовно для всіх елементів масиву
+function f(cb, a) {
+  cb(a);
+}
+
+f(myCb, 5);
+
+// forEach - виконує коллбек послідовно для всіх елементів масиву
 
 const arr20 = [1, 3, 5, 7];
 
@@ -142,6 +151,8 @@ function printArray(currentValue, index, array) {
 
 arr20.forEach(printArray);
 
+// Task: додати до кожного елемента масиву властивість isLiked і проініціалізувати її значенням false
+
 const users = [
   { id: 1, name: 'Test' },
   { id: 2, name: 'Ivo' },
@@ -151,7 +162,7 @@ users.forEach(function (user) {
   user.isLiked = false;
 });
 
-// вивести users за допомогою forEach
+// Task: вивести users за допомогою forEach
 
 function printUsers(currentValue) {
   console.log(currentValue);
@@ -168,7 +179,7 @@ function mapArray(currentValue) {
 
 const arr22 = arr21.map(mapArray);
 
-// filter -
+// filter => новий масив з елеметами, які задовольняють умові в колбеку
 
 const arr23 = [1, 2, 3, 4];
 
@@ -178,7 +189,8 @@ function isOdd(item) {
 
 const arr24 = arr23.filter(isOdd);
 
-const arr25 = [-5, -5, 3, -11, -55]; // відфільтрувати додатні, тобто [1,3]
+// Task: відфільтрувати додатні, тобто [1,3]
+const arr25 = [-5, -5, 3, -11, -55];
 
 function isPositive(item) {
   return item > 0;
@@ -186,7 +198,8 @@ function isPositive(item) {
 const arr26 = arr25.filter(isPositive);
 console.log('arr26', arr26);
 
-// findIndex
+// findIndex => індекс знайденого елемента (для якого з колбека повертається true,
+//              або -1, якщо його не знайдено (для кожного повернулося false))
 
 function find3(item) {
   return item === -5;
