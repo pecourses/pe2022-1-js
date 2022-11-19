@@ -51,7 +51,8 @@ const user1 = {
   emails: ['test1@test.com', 'test2@test.com'],
   isMale: true,
 };
-// name, age, email (email1, email2)
+
+// Task: name, age, email (email1, email2)
 // перейменувати name -> userName, age -> userAge
 
 const {
