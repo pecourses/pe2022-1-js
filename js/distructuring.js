@@ -42,6 +42,7 @@ console.log('lastName :>> ', lastName);
 // Масивів
 // Оголошені змінні співставляються за порядком елементів
 const [firstItem, , thirdItem] = [1, 2, 3];
+
 console.log('firstItem :>> ', firstItem);
 console.log('thirdItem :>> ', thirdItem);
 
@@ -61,6 +62,20 @@ const {
   emails: [firstMail, secondMail],
   isMale,
 } = user1;
+
 console.log('userName :>> ', userName);
 console.log('userAge :>> ', userAge);
 console.log('emails :>> ', secondMail);
+
+const [firstItem1, ...restItems] = [1, 2, 3, 4, 5];
+console.log('firstItem1 :>> ', firstItem1);
+console.log('restItems :>> ', restItems);
+
+const { style, ...restAttrs } = {
+  title: 'title',
+  style: 'color:red;',
+  id: '1',
+};
+
+console.log('style :>> ', style);
+console.log('restAttrs :>> ', restAttrs);
