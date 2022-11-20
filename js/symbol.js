@@ -1,7 +1,10 @@
+// symbol
+
 const symbolVar = Symbol();
 
 console.log('symbolVar :>> ', symbolVar);
 
+// symbol як ключ в об'єкті
 const privatKey = Symbol();
 
 const user = {
@@ -11,6 +14,7 @@ const user = {
 
 console.log('user[Symbol()] :>> ', user[privatKey]);
 
+// symbol для генерації унікальних значень
 const THEMES = {
   LIGHT: Symbol('light'),
   DARK: Symbol('dark'),
@@ -37,44 +41,46 @@ switch (theme) {
 const [first, second] = [1, 2];
 
 // 3 spread operator
-// ствонення копії колекції
+// створення копії колекції
 // конкатенація колекцій
 
 // для масивів:
 const arr1 = [1, 2, 3];
 
+// копіювання масивів
 const arr2 = [...arr1];
 
 function f() {
-  console.log('arguments :>> ', arguments);
   const args = [...arguments];
-  console.log('args :>> ', args);
 }
-
 f(1, 2, 3);
 
+// конкатенація масивів
 const arr3 = [9, 8, 7];
-
 const arr13 = [...arr1, ...arr3];
-console.log('arr13 :>> ', arr13);
+
+// розширення масиву в аргументи функції
+const arr10 = [1, 2, 7];
+
+// f1(arr10[0], arr10[1], arr10[2]);
+// або
+f1(...arr10);
 
 function f1(a, b, c) {
   console.log('a,b,c :>> ', a, b, c);
 }
 
-const arr10 = [1, 2, 7];
-
-// f1(arr10[0], arr10[1], arr10[2]);
-f1(...arr10);
-
-// для об'єктів
+// для об'єктів (не через Symbol.iterator)
 const user1 = { name: 'Test', age: 30 };
+
+// копіювання
 const user2 = { ...user1 };
 
+// злиття об'єктів в один
 const user3 = { isMale: true, isSubscribed: false };
-
 const user13 = { ...user1, ...user3 };
 
+// Ex. отримання набору опцій з користувацьких та дефолтних
 sendRequest({ url: 'http://google.com' });
 
 function sendRequest(options) {
@@ -82,9 +88,8 @@ function sendRequest(options) {
     url: 'http://localhost',
     port: 3000,
   };
-  // отримати resultOptions з options і defaultOptions шляхом розширення (spread)
   const resultOptions = { ...defaultOptions, ...options };
-  // resultOptions = { url: 'http://google.com', port: 3000, }
+  // ...
 }
 
 // 4 Array.from() - створює масив з псевдомасива або ітерованої колекції

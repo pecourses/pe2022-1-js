@@ -1,9 +1,8 @@
-const m1 = new Map();
-console.log('m1 :>> ', m1);
+// Map
 
-// Коллекцичя по ключу, которая может в качестве ключа содержать любой тип
+// Колекція по ключу, яка може як ключ містити будь-який тип
 
-// Свойства/методы:
+// Властивості/методи:
 // size
 // set(key, value) => map
 // get(key) => value
@@ -14,7 +13,14 @@ console.log('m1 :>> ', m1);
 // keys() => MapKeyIterator
 // values() => MapValueIterator
 // enrties() => MapEntryIterator
-// forEach() =>
+// forEach()
+
+// Створення
+const m1 = new Map();
+const m2 = new Map([
+  ['name', 'tel1'],
+  ['name2', 'tel2'],
+]);
 
 // m1.Test = '+380123456789'
 m1.set('Test', '+380123456789')
@@ -40,39 +46,27 @@ for (const item of m1) {
   console.log('item :>> ', item);
 }
 
-const arrKeys = [];
-for (const key of m1.keys()) {
-  arrKeys.push(key);
-}
-console.log('arrKeys :>> ', arrKeys);
-// або
 const myArrKeys = [...m1.keys()];
 
-// Отримати масив значень з мапи (values()) - ['+380123456789', '+380123456789']
+// Task: Отримати масив значень з мапи (values()) - ['+380123456789', '+380123456789']
 const myArrValues = [...m1.values()];
 
 const myArrEntries = [...m1.entries()];
 
-const m2 = new Map([
-  ['name', 'tel1'],
-  ['name2', 'tel2'],
-]);
-
+// Task: Отримати мапу з об'єкта
 const o2 = {
   ivo1: 'tel1',
   ivo2: 'tel2',
 };
-
 const map = new Map(Object.entries(o2));
 
+// Example: перекладач. Словник міститься в мапі
 const vocabulary = new Map();
 vocabulary.set('dog', 'собака');
 vocabulary.set('cat', 'кіт');
 vocabulary.set('run', 'бігти');
 
 const engPhrase = 'dog run white cat';
-
-console.log('translate(engPhrase); :>> ', translate(engPhrase));
 
 // function translate(engPhrase) {
 //   // розділити фразу на слова
@@ -85,13 +79,13 @@ console.log('translate(engPhrase); :>> ', translate(engPhrase));
 //     }
 //     return e;
 //   }
-//   const ukrWords = engWords.map(engToUkr); // map + has + get
+//   const ukrWords = engWords.map(engToUkr);
 
 //   // з'єднати слова в один рядок
 //   const ukrPhrase = ukrWords.join(' ');
 //   return ukrPhrase;
 // }
-
+// або
 function translate(engPhrase) {
   return engPhrase
     .split(' ')
@@ -117,6 +111,7 @@ const m10 = new Map();
 m10.set(user, ['hello', ')))']);
 
 console.log('m10.get(user) :>> ', m10.get(user));
+
 //-----------------------------------------------------------------
 const usersWithMessages2 = [
   { id: 1, name: 'Test1', message: 'hello', date: new Date() },
