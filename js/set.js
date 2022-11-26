@@ -1,6 +1,6 @@
-const set1 = new Set();
+// Колекція унікальних значень (множина)
 
-//Колекція унікальних значень
+const set1 = new Set();
 
 // size
 // add()
@@ -12,32 +12,31 @@ const set1 = new Set();
 // entries()
 // forEach()
 
+// Додати
 set1.add(1).add(2).add(3).add(1).add(1);
 
+// Перевірити наявність
 console.log('set1.has(1) :>> ', set1.has(1));
 console.log('set1.has(5) :>> ', set1.has(5));
 
+// Видалити
 set1.delete(1);
-console.log('set1 :>> ', set1);
 
+// Очистити
 // set1.clear();
 
+// Перебір множини
 for (const item of set1) {
   console.log('item :>> ', item);
 }
 
-console.log('set1.entries() :>> ', set1.entries());
-
+// Перетворити сет на мапу
 const map1 = new Map([...set1.entries()]);
 
-// keys(), values(), (отримати масиви ключів та значень)
+// Task: keys(), values(), (отримати масиви ключів та значень)
 
 const set1Keys = [...set1.keys()];
-console.log('set1Keys :>> ', set1Keys);
 const set1Values = [...set1.values()];
-console.log('set1Values :>> ', set1Values);
-
-console.log('Перебір set :>> ');
 
 function printSet(currentValue, currentKey, set) {
   console.log('currentValue :>> ', currentValue);
@@ -47,11 +46,12 @@ function printSet(currentValue, currentKey, set) {
 
 set1.forEach(printSet);
 
-// Отримати масив унікальних значень
+// Ex.: Отримати масив унікальних значень
 const arr = [1, 2, 3, 4, 5, 6, 1, 1, 1, 1, 2, 2, 2]; // => [1,2,3,4,5,6]
 
 const uniqArr = [...new Set(arr)];
 
+// Task: Отримати масив унікальних імен => ['Test',  'Grut', 'John Doe', 'Jane Doe']
 const users1 = [
   'Test',
   'Grut',
@@ -71,10 +71,9 @@ const users2 = [
   'Grut',
 ];
 
-// Отримати масив унікальних імен ['Test',  'Grut', 'John Doe', 'Jane Doe']
 const uniqNames = [...new Set([...users1, ...users2])];
 
-// Отримати масив марок телефонів
+// Task: Отримати масив марок телефонів => ['IPhone', 'Samsung', 'Xiaomi']
 const users = [
   { name: 'Test0', brand: 'IPhone' },
   { name: 'Test1', brand: 'Samsung' },
@@ -85,10 +84,9 @@ const users = [
   { name: 'Test6', brand: 'IPhone' },
 ];
 
-// => ['IPhone', 'Samsung', 'Xiaomi']
-
 const brands = [...new Set(users.map(item => item.brand))];
 
+// Ex.: Отримати об'єкти виду
 // {
 //   IPhone:['Test0', 'Test2', 'Test6'], Samsung:[], Xiaomi:[]
 // }
