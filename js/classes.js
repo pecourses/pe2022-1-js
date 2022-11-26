@@ -88,6 +88,8 @@
 // спадкування  - перевикористання структури та логіки (альт. назва - спеціалізація, is a)
 // поліморфізм  - можливість через однаковий інтерфейс працювати з різними типами
 
+/***** Спадкування **************************************************************** */
+
 // базовий / бальківський
 class User {
   constructor(name, surname, age, isMale, email) {
@@ -120,7 +122,6 @@ class Moderator extends User {
 }
 
 const permission = {};
-debugger;
 const moderator1 = new Moderator(
   'Mod',
   'Moderovych',
@@ -133,10 +134,84 @@ const moderator1 = new Moderator(
 console.log('moderator1.getFullName() :>> ', moderator1.getFullName());
 moderator1.sendMessage(user1, 'Your message was banned');
 
-// Реалізувати клас Admin, який є модератором, і на додачу має
+// Task: Реалізувати клас Admin, який є модератором, і на додачу має
 // властивість category (1,2)
 // реалізує логіку (забанити або зняти бан з конкретного користувача):
 // - bann
 // - unbann
 
 // Створити об'єкт класу Admin, протустувати роботу методі bann, unbann
+
+class Admin extends Moderator {
+  constructor(name, surname, age, isMale, email, permission, category) {
+    super(name, surname, age, isMale, email, permission);
+    this.category = category;
+  }
+  bann(user) {
+    user.isBanned = true;
+    console.log(`You were banned by ${this.getFullName()}`);
+  }
+  unbann(user) {
+    user.isBanned = false;
+    console.log(`You were unbanned by ${this.getFullName()}`);
+  }
+  // перевизначення
+  sendMessage(user, message) {
+    console.log(
+      `Admin ${this.getFullName()} send message "${message}" to ${user.getFullName()}`
+    );
+  }
+}
+
+const admin1 = new Admin(
+  'Admin',
+  'Adminovych',
+  30,
+  true,
+  'admin@gmail.com',
+  permission,
+  1
+);
+
+console.log('admin1.getFullName', admin1.getFullName());
+
+admin1.bann(user1);
+admin1.unbann(user1);
+
+// ПЕРЕВИЗНАЧЕННЯ
+// Ex.: squirrel (ість, що дадуть), flyingSquirrel (їсть тілько горіхи)
+
+class Squirrel {
+  constructor(name) {
+    this.name = name;
+  }
+
+  run() {
+    console.log(`squirrel ${this.name} is running`);
+  }
+
+  eat(food) {
+    console.log(`squirrel ${this.name} is eating ${food}`);
+  }
+}
+
+class FlyingSquirrel extends Squirrel {
+  constructor(name, maxDistance) {
+    super(name);
+    this.maxDistance = maxDistance;
+  }
+
+  flying() {
+    console.log(`squirrel ${this.name} is flying up to ${this.maxDistance}`);
+  }
+
+  eat() {
+    console.log(`squirrel ${this.name} is eating nuts`);
+  }
+}
+
+const sqiurrel = new Squirrel('Lilia');
+
+const fSquirrel = new FlyingSquirrel('Boing 777', 30);
+
+/***************************************************************************** */
