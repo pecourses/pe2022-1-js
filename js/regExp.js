@@ -163,15 +163,62 @@ const regExp2 = /qwerty/g;
 // );
 
 // Перевірка складного імені Aaaa(-Aaaaa)?
-console.log(
-  '"Anna-Maria".match(/[A-Z][a-z]{1,19}(-)?/) :>> ',
-  'Anna-Maria'.match(/^[A-Z][a-z]{1,19}(-[A-Z][a-z]{1,19})?$/)
-);
-console.log('+380-11-111-11-11'.match(/^\+380-\d{2}-\d{3}(-\d{2}){2}$/));
+// console.log(
+//   '"Anna-Maria".match(/[A-Z][a-z]{1,19}(-)?/) :>> ',
+//   'Anna-Maria'.match(/^[A-Z][a-z]{1,19}(-[A-Z][a-z]{1,19})?$/)
+// );
+// console.log('+380-11-111-11-11'.match(/^\+380-\d{2}-\d{3}(-\d{2}){2}$/));
 
-// +380-99-123-45-45 (99,98,97,96,95,73,50,67,68,63,93)
-console.log(
-  '+380-98-111-11-11'.match(
-    /^\+380-(99|98|97|96|95|73|50|67|68|63|93)-\d{3}(-\d{2}){2}$/
-  )
-);
+// // +380-99-123-45-45 (99,98,97,96,95,73,50,67,68,63,93)
+// console.log(
+//   '+380-98-111-11-11'.match(
+//     /^\+380-(99|98|97|96|95|73|50|67|68|63|93)-\d{3}(-\d{2}){2}$/
+//   )
+// );
+
+// Знайти цитати
+// // ? переводе квантифікатор з жадного режима в лінивий
+// console.log("I say 'yes', but think and say 'no'".match(/'.*?'/g));
+
+// Виокремити речення
+// console.log(
+//   'Adsnfdsfjdsk sdfsdf sdfdsf. Fkjfkdsfsd sdfdsf fdd. Hlkjslf: dfkjdsk kl.'.match(
+//     /[A-Z].*?\./g
+//   )
+// );
+// console.log('I bought 10 apple by 1$'.match(/\d+(?=\$)/g));
+
+// 8-16 A a 0 !@#$%^&*.
+// Qq1.gggg
+
+// console.log(
+//   'Aq1g.qqy'.match(
+//     /^(?=.*[A-Z].*)(?=.*[a-z].*)(?=.*\d.*)(?=.*[!@#$%^&.].*).{8,16}$/
+//   )
+// );
+
+// Методи з використанням регулярок
+
+// replace
+const str1 = 'Fkjhjk       jsdjfs dsfsdf   dsfsfd    sdfsdfsf';
+const srt1Result = str1.replace(/\s{2,}/g, ' ');
+
+// Прибрати ненормативну лексику з повідомлень (fuck, ass, asshole)
+const str2 = 'Fuck you. )))) You are asshole';
+const str2Result = str2.replace(/(fuck|ass|asshole)\b/gi, '!@#$');
+
+const str3 =
+  'Fuck you dude! AAAAAASSHOLE!! FuCCCKKK Fuck Fuck Fuck Fuck Fuck!!!';
+const str3Result = str3.replace(/(f+u+c+k+|a+s{2,}h+o+l+e+)/gi, '####');
+
+const str4 = 'Fkjhjk       jsdjfs dsfsdf   dsfsfd    sdfsdfsf';
+const str4Result = str4.split(/\s{1,}/g);
+
+// '1999-01-01' => ['1999', '01', '01']
+// '1999/01/01' => ['1999', '01', '01']
+// '1999.01.01' => ['1999', '01', '01']
+
+const str5 = '1999.01.01';
+// const str5Result = str5.split(/-|\/|\./g);
+// const str5Result = str5.split(/\!|@|#|\$|%|\^|-|\.|:/g);
+const str5Result = str5.split(/(\!|@|#|\$|%|\^|-|\.|\|:|\\|\/)/g);
